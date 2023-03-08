@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Items from "./pages/Items";
 import Login from "./pages/Login";
 import ProductTypes from "./pages/ProductTypes";
@@ -9,7 +9,8 @@ import "./pages/General.css";
 function App() {
 	let location = useLocation();
 	return (
-		<Routes location={location} key={location.key}>
+		<Routes  location={location} key={location.key}>
+			<Route path="/" element={<Navigate to="/register" />}></Route>
 			<Route path="/login" element={<Login />} />
 			<Route path="/register" element={<Signup />} />
 			<Route path="/productTypes" element={<ProductTypes />} />
